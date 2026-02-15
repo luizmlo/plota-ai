@@ -1,29 +1,36 @@
-"""Google AI (Gemini) provider."""
+"""Google AI (Gemini) provider.
+
+Uses the google-genai SDK (https://github.com/googleapis/python-genai).
+API key from: https://aistudio.google.com/apikey
+"""
 
 from __future__ import annotations
 
+import logging
 from typing import Generator
 
-import google.generativeai as genai
-from google.generativeai.types import HarmBlockThreshold, HarmCategory
+from google import genai
+from google.genai import types
 
 from .base import LLMMessage, LLMProvider, LLMResponse
 
+log = logging.getLogger(__name__)
 
-_DEFAULT_MODEL = "gemini-3-flash-preview"
 
-_SAFETY_SETTINGS = {
-    HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_ONLY_HIGH,
-    HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
-    HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
-    HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
-}
+_DEFAULT_MODEL = "gemini-2.0-flash-001"
+
+_SAFETY_SETTINGS = [
+    types.SafetySetting(category="HARM_CATEGORY_HATE_SPEECH", threshold="BLOCK_ONLY_HIGH"),
+    types.SafetySetting(category="HARM_CATEGORY_HARASSMENT", threshold="BLOCK_ONLY_HIGH"),
+    types.SafetySetting(category="HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold="BLOCK_ONLY_HIGH"),
+    types.SafetySetting(category="HARM_CATEGORY_DANGEROUS_CONTENT", threshold="BLOCK_ONLY_HIGH"),
+]
 
 
 class GoogleAIProvider(LLMProvider):
     """Google AI (Gemini) implementation.
 
-    Uses the google-generativeai SDK. API key from:
+    Uses the google-genai SDK. API key from:
     https://aistudio.google.com/apikey
     """
 
@@ -33,9 +40,8 @@ class GoogleAIProvider(LLMProvider):
         *,
         model: str = _DEFAULT_MODEL,
     ) -> None:
-        genai.configure(api_key=api_key)
+        self._client = genai.Client(api_key=api_key)
         self._model_id = model
-        self._model = genai.GenerativeModel(model)
 
     def chat(
         self,
@@ -44,31 +50,28 @@ class GoogleAIProvider(LLMProvider):
         temperature: float | None = None,
         max_tokens: int = 65536,
     ) -> LLMResponse:
-        history, prompt = self._prepare_chat(messages)
+        contents = self._messages_to_contents(messages)
         config = self._build_config(temperature, max_tokens)
-
-        if history:
-            chat = self._model.start_chat(history=history)
-            response = chat.send_message(
-                prompt,
-                generation_config=config,
-                safety_settings=_SAFETY_SETTINGS,
-                stream=False,
+        prompt_len = 0
+        for c in contents:
+            if c.parts:
+                p = c.parts[0]
+                t = getattr(p, "text", None)
+                if t is not None:
+                    prompt_len += len(t)
+        log.debug("chat: model=%s messages=%s contents_count=%s prompt_len=%s", self._model_id, len(messages), len(contents), prompt_len)
+        try:
+            response = self._client.models.generate_content(
+                model=self._model_id,
+                contents=contents,
+                config=config,
             )
-        else:
-            response = self._model.generate_content(
-                prompt,
-                generation_config=config,
-                safety_settings=_SAFETY_SETTINGS,
-                stream=False,
-            )
-
+        except Exception as e:
+            log.exception("chat: generate_content failed: %s", e)
+            raise
         text = response.text or ""
-        usage = {"prompt_tokens": 0, "completion_tokens": 0}
-        if response.usage_metadata:
-            usage["prompt_tokens"] = response.usage_metadata.prompt_token_count or 0
-            usage["completion_tokens"] = response.usage_metadata.candidates_token_count or 0
-
+        usage = self._usage_from_response(response)
+        log.debug("chat: response len=%s usage=%s", len(text), usage)
         return LLMResponse(content=text, model=self._model_id, usage=usage, finish_reason="stop")
 
     def chat_stream(
@@ -78,29 +81,45 @@ class GoogleAIProvider(LLMProvider):
         temperature: float | None = None,
         max_tokens: int = 65536,
     ) -> Generator[str, None, None]:
-        history, prompt = self._prepare_chat(messages)
+        contents = self._messages_to_contents(messages)
         config = self._build_config(temperature, max_tokens)
-
-        if history:
-            chat = self._model.start_chat(history=history)
-            response = chat.send_message(
-                prompt,
-                generation_config=config,
-                safety_settings=_SAFETY_SETTINGS,
-                stream=True,
-            )
-        else:
-            response = self._model.generate_content(
-                prompt,
-                generation_config=config,
-                safety_settings=_SAFETY_SETTINGS,
-                stream=True,
-            )
-
-        for chunk in response:
-            text = getattr(chunk, "text", None)
-            if text:
-                yield text
+        log.debug(
+            "chat_stream: model=%s messages=%s contents_count=%s",
+            self._model_id,
+            len(messages),
+            len(contents),
+        )
+        chunk_count = 0
+        try:
+            for chunk in self._client.models.generate_content_stream(
+                model=self._model_id,
+                contents=contents,
+                config=config,
+            ):
+                chunk_count += 1
+                if chunk_count == 1:
+                    log.debug("chat_stream: first chunk type=%s has_text=%s", type(chunk).__name__, bool(getattr(chunk, "text", None)))
+                text = getattr(chunk, "text", None)
+                if not text and getattr(chunk, "candidates", None):
+                    # Fallback: extract text from candidates[0].content.parts
+                    try:
+                        c0 = chunk.candidates[0]
+                        content = getattr(c0, "content", None)
+                        parts = getattr(content, "parts", None) or []
+                        for p in parts:
+                            t = getattr(p, "text", None)
+                            if t:
+                                text = (text or "") + t
+                    except (IndexError, AttributeError, TypeError) as e:
+                        log.debug("chat_stream: chunk %s no text, candidates fallback failed: %s", chunk_count, e)
+                if text:
+                    yield text
+                elif chunk_count <= 3 or chunk_count % 50 == 0:
+                    log.debug("chat_stream: chunk %s empty text, chunk=%s", chunk_count, chunk)
+        except Exception as e:
+            log.exception("chat_stream: failed after %s chunks: %s", chunk_count, e)
+            raise
+        log.debug("chat_stream: done chunks=%s", chunk_count)
 
     def name(self) -> str:
         return f"Google AI ({self._model_id})"
@@ -109,47 +128,21 @@ class GoogleAIProvider(LLMProvider):
         self,
         temperature: float | None,
         max_tokens: int,
-    ) -> genai.types.GenerationConfig:
-        # Use at least 32k output; Gemini 3 Flash supports up to 64k
+    ) -> types.GenerateContentConfig:
         max_out = max(max_tokens, 32768)
-        kwargs: dict = {"max_output_tokens": max_out}
+        kwargs: dict = {"max_output_tokens": max_out, "safety_settings": _SAFETY_SETTINGS}
         if temperature is not None:
             kwargs["temperature"] = temperature
-        return genai.types.GenerationConfig(**kwargs)
+        return types.GenerateContentConfig(**kwargs)
 
-    def _prepare_chat(
-        self,
-        messages: list[LLMMessage],
-    ) -> tuple[list, str]:
-        """Convert messages to Gemini history + final prompt.
-        Returns (history, prompt) where prompt is the last user message.
-        """
-        if not messages:
-            return [], ""
-
-        last = messages[-1]
-        if last.role != "user":
-            return [], last.content  # fallback
-
-        prompt = last.content
-        prev = messages[:-1]
-        if not prev:
-            return [], prompt
-
-        history = self._messages_to_genai_history(prev)
-        return history, prompt
-
-    def _messages_to_genai_history(
-        self,
-        messages: list[LLMMessage],
-    ) -> list:
-        """Convert LLMMessages to Gemini Content objects.
+    def _messages_to_contents(self, messages: list[LLMMessage]) -> list[types.Content]:
+        """Convert LLMMessages to a list of genai Content for generate_content.
         System message is prepended to the first user message.
+        If only system message(s) are present, they are sent as a single user content
+        so the API receives valid contents (Gemini requires at least one user turn).
         """
-        history: list = []
+        contents: list[types.Content] = []
         system_parts: list[str] = []
-        Part = genai.protos.Part
-        Content = genai.protos.Content
 
         for m in messages:
             if m.role == "system":
@@ -157,8 +150,34 @@ class GoogleAIProvider(LLMProvider):
             elif m.role == "user":
                 text = "\n\n".join(system_parts + [m.content]) if system_parts else m.content
                 system_parts = []
-                history.append(Content(role="user", parts=[Part(text=text)]))
+                contents.append(
+                    types.Content(
+                        role="user",
+                        parts=[types.Part.from_text(text=text)],
+                    )
+                )
             elif m.role == "assistant":
-                history.append(Content(role="model", parts=[Part(text=m.content)]))
+                contents.append(
+                    types.Content(
+                        role="model",
+                        parts=[types.Part.from_text(text=m.content)],
+                    )
+                )
 
-        return history
+        # API requires at least one user content; system-only is used as the prompt
+        if not contents and system_parts:
+            contents.append(
+                types.Content(
+                    role="user",
+                    parts=[types.Part.from_text(text="\n\n".join(system_parts))],
+                )
+            )
+        return contents
+
+    def _usage_from_response(self, response: types.GenerateContentResponse) -> dict:
+        usage = {"prompt_tokens": 0, "completion_tokens": 0}
+        um = getattr(response, "usage_metadata", None)
+        if um is not None:
+            usage["prompt_tokens"] = getattr(um, "prompt_token_count", 0) or 0
+            usage["completion_tokens"] = getattr(um, "candidates_token_count", 0) or getattr(um, "total_token_count", 0) or 0
+        return usage

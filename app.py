@@ -7,9 +7,16 @@ Run:  streamlit run app.py
 from __future__ import annotations
 
 import html
+import logging
 import os
 import textwrap
 from typing import Any
+
+# Debug logging: set LOG_LEVEL=DEBUG or DEBUG=1 to see LLM provider traces
+_log_level = os.getenv("LOG_LEVEL", "DEBUG" if os.getenv("DEBUG") else "INFO")
+logging.basicConfig(level=getattr(logging, _log_level.upper(), logging.INFO))
+if _log_level.upper() == "DEBUG":
+    logging.getLogger("llm_providers.google_ai").setLevel(logging.DEBUG)
 
 import pandas as pd
 import plotly.graph_objects as go
@@ -982,10 +989,21 @@ elif page == "🖼️ Galeria":
                     entry = e
                     break
             if entry:
+                code = get_plot_code(view_id)
+                df = st.session_state.get("df")
+
+                # Auto-run dashboard when inspecting this gallery item (or when view changed)
+                if code and df is not None and st.session_state.get("gallery_detail_id") != view_id:
+                    result = execute_generated_code(code, df)
+                    st.session_state["gallery_detail_id"] = view_id
+                    st.session_state["gallery_detail_result"] = result
+
                 col_back, col_title = st.columns([1, 5])
                 with col_back:
                     if st.button("← Voltar à Galeria"):
                         st.session_state["gallery_view_id"] = None
+                        st.session_state["gallery_detail_id"] = None
+                        st.session_state["gallery_detail_result"] = None
                         st.rerun()
                 with col_title:
                     st.markdown(f"### {entry['title']}")
@@ -998,28 +1016,36 @@ elif page == "🖼️ Galeria":
                     st.components.v1.html(plot_html, height=550, scrolling=True)
 
                 with st.expander("Ver código gerado", expanded=False):
-                    code = get_plot_code(view_id)
                     st.code(code, language="python")
 
                 st.markdown("---")
                 col_rerun, col_del = st.columns([1, 1])
                 with col_rerun:
                     if st.button("🔄 Re-executar gráfico", use_container_width=True):
-                        code = get_plot_code(view_id)
-                        if code and st.session_state["df"] is not None:
-                            result = execute_generated_code(code, st.session_state["df"])
-                            if result["success"]:
-                                for fig in result["figures"]:
-                                    st.plotly_chart(fig, use_container_width=True)
-                            else:
-                                st.error(f"Erro ao re-executar código:\n{result['error']}")
+                        if code and df is not None:
+                            result = execute_generated_code(code, df)
+                            st.session_state["gallery_detail_id"] = view_id
+                            st.session_state["gallery_detail_result"] = result
+                            st.rerun()
                         else:
                             st.warning("Carregue o mesmo dataset primeiro para re-executar.")
                 with col_del:
                     if st.button("🗑️ Excluir gráfico", use_container_width=True, type="secondary"):
                         delete_plot(view_id)
                         st.session_state["gallery_view_id"] = None
+                        st.session_state["gallery_detail_id"] = None
+                        st.session_state["gallery_detail_result"] = None
                         st.rerun()
+
+                # Render re-execution result full-width below the buttons
+                if st.session_state.get("gallery_detail_id") == view_id:
+                    detail_result = st.session_state.get("gallery_detail_result")
+                    if detail_result:
+                        if detail_result["success"]:
+                            for fig in detail_result["figures"]:
+                                st.plotly_chart(fig, use_container_width=True)
+                        else:
+                            st.error(f"Erro ao re-executar código:\n{detail_result['error']}")
             else:
                 st.session_state["gallery_view_id"] = None
                 st.rerun()
