@@ -1,0 +1,51 @@
+﻿ticket_id,category,priority,status,created_at,resolution_time_hours,feedback
+TKT-2000,Other,Crítica,Aberto,2024-12-03 15:00,54.0,"Problema resolvido rapidamente, muito satisfeito."
+TKT-2001,Technical,Média,Fechado,2024-11-22 13:00,21.6,Ainda estou com dúvidas sobre a cobrança.
+TKT-2002,Product,Crítica,Resolvido,2024-02-26 16:00,4.4,"Problema resolvido rapidamente, muito satisfeito."
+TKT-2003,Other,Crítica,Resolvido,2024-07-07 14:00,64.7,Ainda estou com dúvidas sobre a cobrança.
+TKT-2004,Product,Média,Aberto,2024-04-16 12:00,68.8,"Problema resolvido rapidamente, muito satisfeito."
+TKT-2005,Product,Crítica,Fechado,2024-06-27 12:00,35.9,Atendimento prestativo e eficiente.
+TKT-2006,Billing,Média,Aberto,2024-06-18 17:00,8.6,Demorou mais do que esperava.
+TKT-2007,Technical,Média,Em andamento,2024-03-19 15:00,36.2,"Problema resolvido rapidamente, muito satisfeito."
+TKT-2008,Technical,Crítica,Em andamento,2024-06-22 08:00,43.0,"Problema resolvido rapidamente, muito satisfeito."
+TKT-2009,Account,Alta,Resolvido,2024-01-04 18:00,38.3,Demorou mais do que esperava.
+TKT-2010,Billing,Média,Fechado,2024-08-01 09:00,70.4,"Problema resolvido rapidamente, muito satisfeito."
+TKT-2011,Other,Média,Em andamento,2024-03-15 15:00,71.1,Demorou mais do que esperava.
+TKT-2012,Billing,Alta,Em andamento,2024-01-14 11:00,67.3,Ainda estou com dúvidas sobre a cobrança.
+TKT-2013,Other,Crítica,Em andamento,2024-12-05 18:00,9.9,Atendimento prestativo e eficiente.
+TKT-2014,Technical,Baixa,Em andamento,2024-05-06 12:00,62.0,Atendimento prestativo e eficiente.
+TKT-2015,Account,Alta,Aberto,2024-02-21 13:00,41.1,Demorou mais do que esperava.
+TKT-2016,Account,Baixa,Resolvido,2024-05-03 13:00,26.6,Atendimento prestativo e eficiente.
+TKT-2017,Technical,Crítica,Resolvido,2024-11-21 10:00,49.3,Demorou mais do que esperava.
+TKT-2018,Product,Média,Em andamento,2024-01-13 18:00,55.0,Atendimento prestativo e eficiente.
+TKT-2019,Billing,Média,Resolvido,2024-05-24 11:00,68.7,"Problema resolvido rapidamente, muito satisfeito."
+TKT-2020,Account,Crítica,Resolvido,2024-07-21 09:00,55.6,"Problema resolvido rapidamente, muito satisfeito."
+TKT-2021,Product,Crítica,Resolvido,2024-12-04 08:00,1.7,Atendimento prestativo e eficiente.
+TKT-2022,Other,Crítica,Resolvido,2024-04-16 09:00,5.3,Ainda estou com dúvidas sobre a cobrança.
+TKT-2023,Account,Crítica,Aberto,2024-03-19 11:00,19.2,Atendimento prestativo e eficiente.
+TKT-2024,Other,Crítica,Em andamento,2024-09-22 15:00,3.3,"Problema resolvido rapidamente, muito satisfeito."
+TKT-2025,Product,Crítica,Fechado,2024-01-01 13:00,4.8,Atendimento prestativo e eficiente.
+TKT-2026,Other,Crítica,Aberto,2024-02-28 14:00,56.9,"Problema resolvido rapidamente, muito satisfeito."
+TKT-2027,Product,Média,Resolvido,2024-12-05 15:00,36.7,Ainda estou com dúvidas sobre a cobrança.
+TKT-2028,Other,Baixa,Em andamento,2024-02-08 14:00,45.4,Ainda estou com dúvidas sobre a cobrança.
+TKT-2029,Billing,Baixa,Em andamento,2024-02-24 09:00,36.3,Atendimento prestativo e eficiente.
+TKT-2030,Account,Média,Em andamento,2024-02-11 13:00,30.2,"Problema resolvido rapidamente, muito satisfeito."
+TKT-2031,Account,Alta,Em andamento,2024-05-05 14:00,50.7,Ainda estou com dúvidas sobre a cobrança.
+TKT-2032,Product,Baixa,Resolvido,2024-03-21 18:00,6.4,Demorou mais do que esperava.
+TKT-2033,Other,Alta,Em andamento,2024-03-03 16:00,38.9,Atendimento prestativo e eficiente.
+TKT-2034,Technical,Média,Fechado,2024-10-01 17:00,44.5,Demorou mais do que esperava.
+TKT-2035,Account,Alta,Fechado,2024-11-06 15:00,20.3,Atendimento prestativo e eficiente.
+TKT-2036,Other,Média,Em andamento,2024-06-24 11:00,22.7,"Problema resolvido rapidamente, muito satisfeito."
+TKT-2037,Other,Crítica,Resolvido,2024-11-24 10:00,37.1,"Problema resolvido rapidamente, muito satisfeito."
+TKT-2038,Billing,Crítica,Fechado,2024-07-20 18:00,15.0,Demorou mais do que esperava.
+TKT-2039,Technical,Baixa,Fechado,2024-08-28 11:00,58.3,"Problema resolvido rapidamente, muito satisfeito."
+TKT-2040,Account,Baixa,Fechado,2024-02-04 10:00,38.9,"Problema resolvido rapidamente, muito satisfeito."
+TKT-2041,Billing,Alta,Aberto,2024-02-19 14:00,28.4,"Problema resolvido rapidamente, muito satisfeito."
+TKT-2042,Technical,Alta,Aberto,2024-06-14 13:00,45.9,Demorou mais do que esperava.
+TKT-2043,Account,Baixa,Fechado,2024-03-08 12:00,60.2,"Problema resolvido rapidamente, muito satisfeito."
+TKT-2044,Billing,Crítica,Resolvido,2024-11-03 11:00,49.2,Ainda estou com dúvidas sobre a cobrança.
+TKT-2045,Technical,Média,Resolvido,2024-09-20 17:00,5.2,Atendimento prestativo e eficiente.
+TKT-2046,Account,Crítica,Fechado,2024-12-20 12:00,50.5,Ainda estou com dúvidas sobre a cobrança.
+TKT-2047,Technical,Baixa,Fechado,2024-12-01 18:00,52.7,Demorou mais do que esperava.
+TKT-2048,Other,Média,Resolvido,2024-05-07 16:00,61.0,Demorou mais do que esperava.
+TKT-2049,Product,Alta,Aberto,2024-10-17 11:00,4.6,"Problema resolvido rapidamente, muito satisfeito."

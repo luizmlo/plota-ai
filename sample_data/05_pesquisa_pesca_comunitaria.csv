@@ -1,0 +1,41 @@
+﻿numero,nome,naturalidade,escolaridade,tipo_pesca,idade,sexo,data_entrevista,viu_lixo,pescou_lixo,tipos_lixo_pescado,teve_prejuizo,tipos_prejuizo
+1,Entrevistado 1,Guarujá,Graduação,Subsistência,22,M,15/05/2024,Não,Sim,,Sim,perda de rede
+2,Entrevistado 2,São Sebastião,Ensino fundamental,Artesanal,39,F,25/07/2024,Sim,Sim,"plástico, rede",Não,motor danificado
+3,Entrevistado 3,Guarujá,Pós-graduação,Subsistência,24,F,17/09/2024,Não,Não,vidro,Não,perda de rede
+4,Entrevistado 4,Guarujá,Ensino fundamental,Artesanal,53,M,14/03/2024,Sim,Não,,Sim,"perda de rede, motor danificado"
+5,Entrevistado 5,São Sebastião,Ensino médio,Subsistência,61,F,27/04/2024,Não,Sim,plástico,Sim,motor danificado
+6,Entrevistado 6,São Sebastião,Pós-graduação,Recreativa,42,F,26/10/2024,Sim,Não,"vidro, metal",Sim,"perda de rede, motor danificado"
+7,Entrevistado 7,São Sebastião,Pós-graduação,Recreativa,36,M,05/05/2024,Sim,Não,metal,Não,perda de rede
+8,Entrevistado 8,Santos,Ensino fundamental,Artesanal,34,M,02/11/2024,Sim,Sim,plástico,Sim,perda de pescado
+9,Entrevistado 9,Santos,Pós-graduação,Artesanal,64,F,16/06/2024,Não,Sim,metal,Sim,perda de pescado
+10,Entrevistado 10,Cubatão,Graduação,Subsistência,60,F,18/02/2024,Não,Sim,"plástico, rede",Sim,perda de rede
+11,Entrevistado 11,Cubatão,Graduação,Subsistência,56,M,23/09/2024,Sim,Não,,Sim,
+12,Entrevistado 12,Guarujá,Ensino médio,Artesanal,27,M,28/02/2024,Sim,Sim,rede,Não,
+13,Entrevistado 13,Guarujá,Graduação,Artesanal,39,M,10/02/2024,Não,Não,"plástico, rede",Não,perda de pescado
+14,Entrevistado 14,Cubatão,Ensino médio,Recreativa,23,M,25/03/2024,Sim,Sim,vidro,Não,perda de pescado
+15,Entrevistado 15,Praia Grande,Ensino fundamental,Recreativa,55,M,09/08/2024,Sim,Sim,vidro,Sim,motor danificado
+16,Entrevistado 16,Guarujá,Ensino fundamental,Artesanal,60,F,17/03/2024,Sim,Sim,plástico,Sim,motor danificado
+17,Entrevistado 17,Praia Grande,Ensino médio,Recreativa,27,M,27/07/2024,Não,Sim,plástico,Não,perda de pescado
+18,Entrevistado 18,Praia Grande,Graduação,Industrial,40,M,03/04/2024,Não,Não,vidro,Não,
+19,Entrevistado 19,São Sebastião,Graduação,Subsistência,37,F,27/08/2024,Sim,Não,"vidro, metal",Não,motor danificado
+20,Entrevistado 20,Santos,Ensino médio,Recreativa,59,M,12/01/2024,Não,Não,vidro,Não,perda de rede
+21,Entrevistado 21,Cubatão,Ensino médio,Industrial,62,F,14/01/2024,Sim,Não,vidro,Sim,motor danificado
+22,Entrevistado 22,Santos,Ensino fundamental,Artesanal,60,M,13/09/2024,Não,Não,metal,Sim,motor danificado
+23,Entrevistado 23,Cubatão,Ensino médio,Recreativa,43,M,12/04/2024,Sim,Sim,"plástico, rede",Não,motor danificado
+24,Entrevistado 24,Santos,Graduação,Artesanal,26,M,13/02/2024,Sim,Sim,"vidro, metal",Não,"perda de rede, motor danificado"
+25,Entrevistado 25,Cubatão,Ensino médio,Subsistência,56,M,12/04/2024,Não,Não,metal,Não,perda de rede
+26,Entrevistado 26,Santos,Ensino médio,Artesanal,63,F,01/06/2024,Sim,Não,rede,Não,perda de pescado
+27,Entrevistado 27,São Sebastião,Ensino médio,Industrial,23,M,04/12/2024,Sim,Sim,"vidro, metal",Sim,
+28,Entrevistado 28,Praia Grande,Ensino fundamental,Artesanal,37,F,21/06/2024,Não,Não,metal,Sim,
+29,Entrevistado 29,Cubatão,Ensino médio,Industrial,53,F,26/03/2024,Não,Não,vidro,Sim,perda de pescado
+30,Entrevistado 30,Praia Grande,Pós-graduação,Recreativa,42,M,05/01/2024,Sim,Sim,metal,Sim,"perda de rede, motor danificado"
+31,Entrevistado 31,Cubatão,Pós-graduação,Recreativa,59,F,10/08/2024,Não,Não,plástico,Não,
+32,Entrevistado 32,Cubatão,Pós-graduação,Industrial,68,F,23/03/2024,Não,Não,"vidro, metal",Não,motor danificado
+33,Entrevistado 33,São Sebastião,Graduação,Subsistência,39,F,25/12/2024,Não,Não,,Sim,
+34,Entrevistado 34,Santos,Graduação,Subsistência,70,M,16/08/2024,Sim,Não,vidro,Não,perda de rede
+35,Entrevistado 35,Cubatão,Ensino médio,Subsistência,26,M,20/01/2024,Não,Não,"plástico, rede",Não,perda de rede
+36,Entrevistado 36,Santos,Pós-graduação,Recreativa,60,F,03/01/2024,Sim,Não,metal,Não,perda de pescado
+37,Entrevistado 37,São Sebastião,Ensino fundamental,Recreativa,62,F,09/04/2024,Não,Sim,vidro,Sim,"perda de rede, motor danificado"
+38,Entrevistado 38,Guarujá,Pós-graduação,Subsistência,65,M,27/03/2024,Sim,Não,"vidro, metal",Não,"perda de rede, motor danificado"
+39,Entrevistado 39,Praia Grande,Pós-graduação,Artesanal,61,F,18/12/2024,Sim,Não,,Não,
+40,Entrevistado 40,Cubatão,Graduação,Subsistência,51,F,20/09/2024,Não,Não,plástico,Sim,"perda de rede, motor danificado"

@@ -1,0 +1,81 @@
+﻿respondent_id,age_group,gender,satisfaction,would_recommend,nps_score
+1,18-24,Feminino,Satisfeito,Não,2
+2,18-24,Outro,Muito satisfeito,Não,7
+3,35-44,Masculino,Satisfeito,Não,8
+4,25-34,Feminino,Muito insatisfeito,Não,6
+5,25-34,Masculino,Insatisfeito,Não,8
+6,25-34,Outro,Insatisfeito,Sim,0
+7,18-24,Prefiro não informar,Muito insatisfeito,Sim,1
+8,55+,Outro,Neutro,Não,1
+9,18-24,Masculino,Muito insatisfeito,Sim,2
+10,55+,Feminino,Muito satisfeito,Sim,8
+11,45-54,Outro,Muito satisfeito,Sim,0
+12,18-24,Feminino,Insatisfeito,Não,5
+13,18-24,Prefiro não informar,Muito satisfeito,Sim,9
+14,18-24,Prefiro não informar,Insatisfeito,Sim,8
+15,25-34,Prefiro não informar,Muito insatisfeito,Não,2
+16,25-34,Feminino,Muito insatisfeito,Sim,6
+17,55+,Outro,Muito insatisfeito,Sim,2
+18,55+,Feminino,Insatisfeito,Sim,0
+19,18-24,Feminino,Muito insatisfeito,Sim,4
+20,55+,Outro,Muito insatisfeito,Sim,5
+21,25-34,Prefiro não informar,Neutro,Sim,0
+22,55+,Prefiro não informar,Muito insatisfeito,Sim,5
+23,45-54,Outro,Muito satisfeito,Não,3
+24,25-34,Feminino,Insatisfeito,Sim,10
+25,45-54,Feminino,Neutro,Sim,3
+26,55+,Prefiro não informar,Satisfeito,Sim,10
+27,35-44,Masculino,Insatisfeito,Sim,1
+28,18-24,Masculino,Muito satisfeito,Não,5
+29,25-34,Masculino,Insatisfeito,Não,8
+30,45-54,Feminino,Muito satisfeito,Não,6
+31,35-44,Feminino,Muito satisfeito,Sim,9
+32,35-44,Prefiro não informar,Satisfeito,Não,2
+33,25-34,Masculino,Insatisfeito,Sim,3
+34,25-34,Prefiro não informar,Satisfeito,Não,2
+35,35-44,Prefiro não informar,Satisfeito,Não,2
+36,18-24,Prefiro não informar,Insatisfeito,Sim,6
+37,18-24,Outro,Muito insatisfeito,Não,0
+38,45-54,Masculino,Muito insatisfeito,Não,2
+39,18-24,Masculino,Satisfeito,Não,5
+40,35-44,Outro,Neutro,Sim,6
+41,35-44,Outro,Satisfeito,Sim,10
+42,55+,Masculino,Satisfeito,Não,3
+43,35-44,Outro,Satisfeito,Sim,4
+44,18-24,Prefiro não informar,Muito insatisfeito,Sim,2
+45,45-54,Feminino,Muito insatisfeito,Sim,1
+46,55+,Prefiro não informar,Muito insatisfeito,Não,6
+47,18-24,Masculino,Satisfeito,Sim,0
+48,45-54,Outro,Neutro,Não,7
+49,18-24,Feminino,Muito insatisfeito,Sim,3
+50,55+,Masculino,Insatisfeito,Sim,3
+51,35-44,Outro,Insatisfeito,Não,7
+52,55+,Feminino,Insatisfeito,Não,5
+53,35-44,Feminino,Muito satisfeito,Sim,4
+54,55+,Outro,Satisfeito,Não,3
+55,25-34,Feminino,Insatisfeito,Não,3
+56,18-24,Masculino,Satisfeito,Sim,0
+57,18-24,Outro,Insatisfeito,Não,10
+58,25-34,Prefiro não informar,Neutro,Sim,3
+59,35-44,Masculino,Satisfeito,Sim,6
+60,18-24,Masculino,Insatisfeito,Não,5
+61,25-34,Outro,Muito insatisfeito,Sim,4
+62,18-24,Outro,Satisfeito,Sim,1
+63,45-54,Feminino,Muito satisfeito,Sim,4
+64,35-44,Masculino,Muito insatisfeito,Não,5
+65,45-54,Feminino,Muito insatisfeito,Não,10
+66,35-44,Masculino,Muito satisfeito,Sim,8
+67,25-34,Masculino,Muito insatisfeito,Não,6
+68,35-44,Prefiro não informar,Muito insatisfeito,Sim,10
+69,35-44,Masculino,Insatisfeito,Não,8
+70,25-34,Feminino,Insatisfeito,Não,5
+71,35-44,Feminino,Satisfeito,Não,0
+72,18-24,Prefiro não informar,Satisfeito,Sim,1
+73,55+,Feminino,Satisfeito,Sim,4
+74,25-34,Outro,Insatisfeito,Não,2
+75,55+,Prefiro não informar,Satisfeito,Não,9
+76,25-34,Feminino,Muito insatisfeito,Sim,4
+77,25-34,Feminino,Insatisfeito,Sim,0
+78,45-54,Outro,Satisfeito,Não,1
+79,45-54,Prefiro não informar,Muito insatisfeito,Sim,9
+80,35-44,Outro,Satisfeito,Não,6

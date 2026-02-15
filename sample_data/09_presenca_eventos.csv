@@ -1,0 +1,66 @@
+﻿attendee_id,event_date,confirmed,checked_in,interests,ticket_type
+1,26/09/2024,Sim,Sim,tecnologia,Regular
+2,07/08/2024,Não,Não,marketing,Regular
+3,07/06/2024,Não,Sim,"tecnologia, networking, startups",Regular
+4,10/01/2024,Não,Sim,marketing,Regular
+5,07/04/2024,Sim,Sim,"tecnologia, networking, startups",Estudante
+6,24/02/2024,Sim,Não,design,Estudante
+7,24/08/2024,Não,Sim,"tecnologia, networking, startups",Estudante
+8,08/04/2024,Sim,Não,marketing,Estudante
+9,13/04/2024,Sim,Sim,networking,VIP
+10,18/06/2024,Sim,Não,"negócios, networking",Regular
+11,25/05/2024,Não,Não,"tecnologia, networking, startups",VIP
+12,13/08/2024,Não,Não,"tecnologia, negócios",Regular
+13,18/06/2024,Não,Sim,design,VIP
+14,10/05/2024,Não,Sim,"tecnologia, networking, startups",Regular
+15,12/09/2024,Sim,Sim,networking,Regular
+16,16/08/2024,Sim,Não,marketing,VIP
+17,04/08/2024,Sim,Não,"tecnologia, networking, startups",VIP
+18,25/06/2024,Sim,Não,"negócios, networking",Estudante
+19,07/06/2024,Não,Não,design,VIP
+20,11/07/2024,Não,Sim,"tecnologia, negócios",Regular
+21,02/04/2024,Não,Sim,"tecnologia, networking, startups",Regular
+22,24/03/2024,Sim,Sim,marketing,Regular
+23,01/05/2024,Sim,Sim,"negócios, networking",Regular
+24,18/07/2024,Sim,Não,marketing,VIP
+25,10/03/2024,Sim,Não,"tecnologia, networking, startups",Estudante
+26,07/06/2024,Não,Não,negócios,Regular
+27,08/07/2024,Não,Sim,"tecnologia, negócios",Regular
+28,19/04/2024,Sim,Sim,networking,Regular
+29,16/09/2024,Sim,Sim,tecnologia,VIP
+30,21/06/2024,Não,Não,design,Regular
+31,09/08/2024,Sim,Sim,"tecnologia, negócios",Estudante
+32,24/08/2024,Sim,Não,design,Estudante
+33,15/03/2024,Não,Não,"negócios, networking",Regular
+34,24/06/2024,Sim,Sim,negócios,Regular
+35,06/03/2024,Sim,Não,marketing,VIP
+36,24/09/2024,Sim,Não,design,Regular
+37,16/03/2024,Não,Não,networking,VIP
+38,18/01/2024,Sim,Sim,"negócios, networking",Estudante
+39,17/01/2024,Não,Sim,"tecnologia, negócios",VIP
+40,27/02/2024,Sim,Sim,"negócios, networking",VIP
+41,27/01/2024,Sim,Não,networking,Regular
+42,25/01/2024,Não,Sim,marketing,Estudante
+43,14/03/2024,Não,Sim,marketing,VIP
+44,27/04/2024,Não,Não,negócios,Estudante
+45,03/03/2024,Sim,Não,design,VIP
+46,01/04/2024,Sim,Não,design,Estudante
+47,17/08/2024,Não,Não,marketing,VIP
+48,12/01/2024,Sim,Sim,marketing,Estudante
+49,20/08/2024,Sim,Sim,tecnologia,VIP
+50,22/08/2024,Não,Sim,"tecnologia, networking, startups",Estudante
+51,01/01/2024,Sim,Não,negócios,VIP
+52,18/09/2024,Sim,Não,negócios,Regular
+53,14/01/2024,Não,Não,"tecnologia, negócios",Estudante
+54,01/09/2024,Não,Não,"tecnologia, networking, startups",Regular
+55,24/05/2024,Não,Não,networking,Regular
+56,18/05/2024,Sim,Sim,tecnologia,VIP
+57,01/09/2024,Não,Não,marketing,Regular
+58,27/07/2024,Não,Não,"tecnologia, networking, startups",Estudante
+59,26/03/2024,Não,Sim,marketing,VIP
+60,04/02/2024,Sim,Não,negócios,VIP
+61,17/03/2024,Não,Sim,tecnologia,Estudante
+62,08/04/2024,Não,Não,negócios,Estudante
+63,20/09/2024,Não,Sim,"negócios, networking",Regular
+64,09/06/2024,Sim,Sim,"tecnologia, negócios",Regular
+65,09/07/2024,Não,Não,"tecnologia, negócios",VIP

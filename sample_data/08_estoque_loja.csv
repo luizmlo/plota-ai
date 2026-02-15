@@ -1,0 +1,36 @@
+﻿sku,product,category,price,stock,reorder_level
+SKU-1000,Monitor,Eletrônicos,R$ 6.096,70,12
+SKU-1001,Mouse,Periféricos,R$ 392,15,14
+SKU-1002,Pen drive,Periféricos,R$ 3.325,142,27
+SKU-1003,Mouse,Acessórios,R$ 3.625,242,9
+SKU-1004,Pen drive,Acessórios,R$ 1.949,151,30
+SKU-1005,Headset,Acessórios,R$ 4.451,225,19
+SKU-1006,Headset,Periféricos,R$ 1.809,188,6
+SKU-1007,Headset,Acessórios,R$ 6.209,233,22
+SKU-1008,Monitor,Periféricos,R$ 7.105,44,18
+SKU-1009,Teclado,Eletrônicos,R$ 6.387,160,18
+SKU-1010,Monitor,Eletrônicos,R$ 492,173,22
+SKU-1011,Monitor,Periféricos,R$ 1.177,109,21
+SKU-1012,Pen drive,Periféricos,R$ 4.157,142,9
+SKU-1013,Monitor,Eletrônicos,R$ 2.399,126,17
+SKU-1014,Monitor,Periféricos,R$ 1.948,12,12
+SKU-1015,Notebook,Eletrônicos,R$ 6.712,248,13
+SKU-1016,Headset,Acessórios,R$ 7.537,88,11
+SKU-1017,Headset,Eletrônicos,R$ 6.022,241,15
+SKU-1018,Pen drive,Eletrônicos,R$ 4.749,164,25
+SKU-1019,Webcam,Acessórios,R$ 2.642,171,7
+SKU-1020,Mouse,Periféricos,R$ 4.760,97,19
+SKU-1021,Headset,Acessórios,R$ 4.928,201,16
+SKU-1022,Pen drive,Eletrônicos,R$ 6.358,134,7
+SKU-1023,Teclado,Eletrônicos,R$ 5.539,81,22
+SKU-1024,Notebook,Eletrônicos,R$ 6.734,178,28
+SKU-1025,Mouse,Eletrônicos,R$ 2.656,106,11
+SKU-1026,Webcam,Eletrônicos,R$ 1.970,104,6
+SKU-1027,Monitor,Acessórios,R$ 2.502,38,13
+SKU-1028,Webcam,Eletrônicos,R$ 7.208,76,17
+SKU-1029,Mouse,Periféricos,R$ 1.203,96,26
+SKU-1030,Headset,Acessórios,R$ 5.438,47,24
+SKU-1031,Mouse,Acessórios,R$ 4.300,193,24
+SKU-1032,Pen drive,Acessórios,R$ 1.840,137,6
+SKU-1033,Notebook,Eletrônicos,R$ 3.417,121,7
+SKU-1034,Pen drive,Eletrônicos,R$ 2.491,61,11
