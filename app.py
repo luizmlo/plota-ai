@@ -440,49 +440,6 @@ def build_system_prompt(df: pd.DataFrame) -> str:
 # ─────────────────────────────────────────────────────────────────
 
 with st.sidebar:
-    st.markdown("### ⚙️ Configuração")
-
-    # Provider selector
-    provider_options = [p["label"] for p in PROVIDERS]
-    provider_idx = next((i for i, p in enumerate(PROVIDERS) if p["id"] == st.session_state.get("llm_provider", "kimi")), 0)
-    provider_label = st.selectbox(
-        "Provedor de IA",
-        provider_options,
-        index=provider_idx,
-        key="llm_provider_select",
-    )
-    provider = next(p for p in PROVIDERS if p["label"] == provider_label)
-    st.session_state["llm_provider"] = provider["id"]
-
-    # Model selector (filtered by provider)
-    model_options = [m["label"] for m in provider["models"]]
-    model_ids = [m["id"] for m in provider["models"]]
-    current_model = st.session_state.get("llm_model", model_ids[0])
-    model_idx = next((i for i, mid in enumerate(model_ids) if mid == current_model), 0)
-    model_label = st.selectbox(
-        "Modelo",
-        model_options,
-        index=model_idx,
-        key="llm_model_select",
-    )
-    st.session_state["llm_model"] = model_ids[model_options.index(model_label)]
-
-    # API key (per-provider, stored separately)
-    api_key_env = provider["env"]
-    api_key_key = f"api_key_{provider['id']}"
-    api_key_default = st.session_state.get(api_key_key, "") or os.getenv(api_key_env, "")
-    api_key_label = "Chave API Moonshot" if provider["id"] == "kimi" else "Chave API Google AI"
-    api_key_input = st.text_input(
-        api_key_label,
-        type="password",
-        value=api_key_default,
-        help=f"Obtenha em {provider['help']}",
-        key="api_key_input",
-    )
-    st.session_state[api_key_key] = api_key_input
-    st.session_state["api_key"] = api_key_input  # current provider's key for get_provider
-
-    st.markdown("---")
     st.markdown("### 📁 Importar Dados")
 
     uploaded_file = st.file_uploader(
@@ -549,6 +506,49 @@ with st.sidebar:
         ["🤖 Auto-Pilot", "💬 Chat & Análise", "📊 Prévia dos Dados", "🖼️ Galeria"],
         index=0,
     )
+
+    # ── Model / Provider (last) ───────────────────────────────────
+    st.markdown("---")
+    with st.expander("⚙️ Modelo / Provedor", expanded=False):
+        # Provider selector
+        provider_options = [p["label"] for p in PROVIDERS]
+        provider_idx = next((i for i, p in enumerate(PROVIDERS) if p["id"] == st.session_state.get("llm_provider", "kimi")), 0)
+        provider_label = st.selectbox(
+            "Provedor de IA",
+            provider_options,
+            index=provider_idx,
+            key="llm_provider_select",
+        )
+        provider = next(p for p in PROVIDERS if p["label"] == provider_label)
+        st.session_state["llm_provider"] = provider["id"]
+
+        # Model selector (filtered by provider)
+        model_options = [m["label"] for m in provider["models"]]
+        model_ids = [m["id"] for m in provider["models"]]
+        current_model = st.session_state.get("llm_model", model_ids[0])
+        model_idx = next((i for i, mid in enumerate(model_ids) if mid == current_model), 0)
+        model_label = st.selectbox(
+            "Modelo",
+            model_options,
+            index=model_idx,
+            key="llm_model_select",
+        )
+        st.session_state["llm_model"] = model_ids[model_options.index(model_label)]
+
+        # API key (per-provider, stored separately)
+        api_key_env = provider["env"]
+        api_key_key = f"api_key_{provider['id']}"
+        api_key_default = st.session_state.get(api_key_key, "") or os.getenv(api_key_env, "")
+        api_key_label = "Chave API Moonshot" if provider["id"] == "kimi" else "Chave API Google AI"
+        api_key_input = st.text_input(
+            api_key_label,
+            type="password",
+            value=api_key_default,
+            help=f"Obtenha em {provider['help']}",
+            key="api_key_input",
+        )
+        st.session_state[api_key_key] = api_key_input
+        st.session_state["api_key"] = api_key_input  # current provider's key for get_provider
 
 # ─────────────────────────────────────────────────────────────────
 # Header
